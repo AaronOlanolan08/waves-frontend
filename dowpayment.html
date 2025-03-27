@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAVES Beach Resort</title>
+    <link rel="stylesheet" href="../css/dp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jaldi&family=Allura&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../image/logs.png" alt="WAVES Logo">
+            <h1 class="title">WAVES <span>Beach Resort</span></h1>
+        </div>
+        <nav>
+            <a href="#">Book Now</a>
+            <a href="#">About Us</a>
+            <i class="fas fa-user-circle"></i>
+        </nav>   
+    </header>
+    
+    <main>
+        <section class="down-payment-receipt">
+            <div class="receipt-container">
+                <h2 class="dp-title">WAVES <span>Beach Resort</span></h2>
+                <h3>Complete Your Reservation with a Down Payment</h3>
+                <button class="close-btn">&times;</button>
+                <div class="downpayment-container">
+                    <div class="downpayment-content">
+
+                        <div class="payment-summary">
+                            <div class="placeholder-box"></div> <!-- Placeholder for dynamic data -->
+                            <p class="warning">
+                                Down payments are non-refundable if the reservation is canceled. <br> 
+                                Please ensure your reservation is final before proceeding.
+                            </p>
+                        </div>
+
+                        <div class="payment-instructions">
+                            <h4>1. Pay via GCash</h4>
+                            <p>Use the GCash number below to send your payment:</p>
+                            <p><a href="#">0915129803 - Waves Beach Resort</a></p>
+
+                            <h4>2. Provide Payment Details</h4>
+                            <p class="upload-instruction">After completing the payment, please enter the following information of the Gcash account you used to proceed with your reservation verification:</p>
+                            <input type="text" id="full-name" placeholder="Enter your full name">
+
+                            <input type="text" id="gcash-number" placeholder="Enter GCash number used">
+
+                            <h4>3. Upload Proof of Payment</h4>
+                            <p class="upload-instruction">Upload the screenshot of your Gcash payment receipt:</p>                            
+                            <input type="file" id="proof-of-payment">
+
+                            <div class="button-container">
+                                <button class="submit-btn">Submit</button>
+                                <button class="cancel-btn">Cancel</button>
+                            </div>
+                        </div> 
+                        
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+    </main>
+
+</body>
+</html>
