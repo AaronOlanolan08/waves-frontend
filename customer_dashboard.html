@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jaldi&family=Allura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/res.css">
+    <link rel="stylesheet" href="../css/customer_dashboard.css">
 </head>
 <body>
     <header>
@@ -70,7 +70,44 @@
               <div class="button-wrapper">
                 <button class="payment-button">Proceed to Payment</button>
               </div>
-              
-    <script src="../script/script.js"></script>
+        </div>
+        
+        <div class="image-carousel">
+            <button class="prev">&#10094;</button>
+            <img src="../image/beach2.jpg" alt="Beach View">
+            <button class="next">&#10095;</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = [
+                "../image/beach1.jpg",
+                "../image/beach2.jpg",
+                "../image/beach3.jpg",
+            ];
+    
+            let currentIndex = 0;
+            const imageElement = document.querySelector(".image-carousel img");
+            const prevButton = document.querySelector(".prev");
+            const nextButton = document.querySelector(".next");
+    
+            function updateImage() {
+                imageElement.src = images[currentIndex];
+            }
+    
+            prevButton.addEventListener("click", function () {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            });
+    
+            nextButton.addEventListener("click", function () {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            });
+    
+            updateImage();
+        });
+    </script>
 </body>
 </html>
