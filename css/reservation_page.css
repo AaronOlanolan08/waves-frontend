@@ -126,11 +126,11 @@ body {
 .reservation-column {
     width: 200px;
     min-height: 400px;
-    border: #263b49;
+    border: 2px;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    background: #fff; 
+    background: white; 
 }
 
 .reservation-item {
