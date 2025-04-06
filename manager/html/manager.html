@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="/css/manager.css" rel="stylesheet">
+  <title></title>
+</head>
+<body>
+
+  <!--THIS IS A NAVIGATION BAR-->
+
+  <nav class="navbar">
+
+    <div class="left-side-nav">
+      <button class="dashboard" onclick="loadContent('dashboard.html')">
+        <i class="material-icons nav-icons">dashboard</i> Dashboard
+      </button>
+      <button class="ameneties" onclick="loadContent('ameneties.html')">
+        <i class="material-icons nav-icons">holiday_village</i> Ameneties
+      </button>
+      <button class="reservations" onclick="loadContent('reservations.html')">
+        <i class="material-icons nav-icons">date_range</i> Reservations
+      </button>
+    </div>
+
+    <div class="right-side-nav">
+      <i class="material-icons" style="font-size:45px; color: #0b1d34">
+        account_circle
+      </i>
+    </div>
+
+  </nav>
+
+  <!--Main Content Here-->
+
+  <main class="main" id="main-content">
+
+  </main>
+
+
+  <script>
+    function loadContent(page) {
+    fetch(page)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('main-content').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading the page:', error));
+}
+
+    window.onload = function() {
+      loadContent('ameneties.html');
+    };
+  </script>
+
+
+
+
+
+</body>
+</html>
