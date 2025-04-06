@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/venhistory.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Reservation History</title>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR SECTION -->
+
+  <nav class="navbar">
+
+    <div class="left-side-nav">
+      <a href="dashboard.html">
+        <button class="dashboard inactive" id="dashboard">
+          <i class="material-icons nav-icons">dashboard</i> Dashboard
+        </button>
+      </a>
+      <a href="ameneties.html">
+        <button class="ameneties" id="ameneties">
+          <i class="material-icons nav-icons">holiday_village</i> Ameneties
+        </button>
+      </a>
+      <a href="reservations.html">
+        <button class="reservations active" id="reservation">
+          <i class="material-icons nav-icons">date_range</i> Reservations
+        </button>
+      </a>
+          
+      
+      
+    </div>
+
+    <div class="right-side-nav">
+      <button class="profile">
+        <i class="material-icons" style="font-size:45px; color: white">
+          account_circle
+        </i>
+      </button>
+    </div>
+
+  </nav>
+
+  <main class="main">
+    <a href="calendar.html" class="back-link">
+      <span class="chevron-left"></span> Back to Calendar
+      </a>
+    <h2 class="head-title">All Reservations</h2>
+  
+    <div class="status-bar">
+      <span style="color: green;">● Verified</span>
+      <span style="color: orange;">● Pending</span>
+      <span style="color: red;">● Cancelled</span>
+      <span style="color: gray;">● Past</span>
+    </div>
+  
+    <div class="reservations-container">
+      <!-- Cancelled Column -->
+      <div class="reservation-column">
+        <h4>Cancelled</h4>
+        <div class="reservation-item cancelled">
+          <strong>#6 Maria Sanchez</strong><br>
+          2024-11-24 | 8:00 AM
+        </div>
+        <div class="reservation-item cancelled">
+          <strong>#2 What Watawat</strong><br>
+          2023-01-20 | 12:00 PM
+        </div>
+      </div>
+
+      <!-- Current Column -->
+      <div class="reservation-column">
+        <h4>Current</h4>
+        <div class="reservation-item verified">
+          <strong>#7 Manny Pacquiao</strong><br>
+          2024-10-18 | 1:00 PM
+        </div>
+        <div class="reservation-item pending">
+          <strong>#8 Ayo Gogoy</strong><br>
+          2024-10-19 | 4:00 PM
+        </div>
+        <div class="reservation-item pending">
+          <strong>#9 Ha hakdog</strong><br>
+          2024-12-25 | 6:00 PM
+        </div>
+      </div>
+
+      <!-- Completed Column -->
+      <div class="reservation-column">
+        <h4>Completed</h4>
+        <div class="reservation-item completed">
+          <strong>#5 Kinakusgang Di Magiba </strong><br>
+          2024-02-09 | 11:00 AM
+        </div>
+        <div class="reservation-item completed">
+          <strong>#4 Olivia Rodrigo</strong><br>
+          2024-01-27 | 9:00 AM
+        </div>
+        <div class="reservation-item completed">
+          <strong>#3 Manny Pacquiao</strong><br>
+          2023-09-01 | 10:00 AM
+        </div>
+        <div class="reservation-item completed">
+          <strong>#1 Saan Ka Punta</strong><br>
+          2022-02-11 | 1:00 PM
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
