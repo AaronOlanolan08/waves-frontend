@@ -220,8 +220,8 @@ a {
 
 .reservation-column {
     flex: 1;
-    max-width: 300px;
-    min-width: 370px;
+    max-width: 200px;
+    min-width: 270px;
     height: auto;
     border: 2px solid #263b49;
     border-radius: 10px;
