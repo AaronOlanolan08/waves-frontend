@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/bal.css">   <!-- alaws pa na convert -->
+  <link rel="stylesheet" href="../css/bal.css" />   <!-- kani na link, kay wala pa na convert -->
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <title>Remaining Balances</title>
 </head>
 <body>
@@ -53,9 +53,9 @@
         <div class="header-cell name-header">Name</div>
         <div class="header-cell calculation-header">Balance Calculation</div>
         <div class="header-cell remaining-header">Remaining Balance</div>
-        <div class="header-cell"></div> <!-- Empty header for buttons -->
+        <div class="header-cell"></div> 
       </div>
-      
+
       <div class="reservation-item">
         <div class="name-cell">
           <span class="guest-name">Sayang Aq Huhu</span>
@@ -95,6 +95,78 @@
       </div>
     </div>
   </main>
+
+  <!-- Modal -->
+  <div id="paymentModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-x" id="modalCloseX">&times;</span>
+      <div class="modal-header">Payment Summary</div>
+      <div class="payment-details">
+        <div class="name-section">
+          <div class="guest-name" id="modalGustName">Ey Yo</div>
+          <div class="payment-summary">
+            Full Cottage<br />
+            Round Table w3 chairs
+          </div>
+        </div>
+        <div class="total-section">
+          <strong>Total:</strong><span id="modalTotalAmount">₱2,500</span>
+        </div>
+        <div class="downpayment-section">
+          <strong>Down Payment:</strong><span id="modalDownpayment">₱1,500</span>
+        </div>
+        <div class="balance-section">
+          <div class="balance-items">
+            <div class="balance-item"><span class="pre">Total: 1,100</span></div>
+            <div class ="balance-item"><span class="pre">Down Payment: 575</span></div>
+            <div class="balance-item"><span class="pre">Remaining Balance: 575</span></div>
+          </div>
+        </div>
+        <hr />
+        <div class="modal-footer">
+          <label for="paymentInput" class="payment-label">Enter Payment Received:</label>
+          <input type="number" id="paymentInput" class="payment-input" />      
+          <button class="record-btn confirm-record-btn">Record</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('paymentModal');
+      const recordButtons = document.querySelectorAll('.verify-btn');
+      const confirmButton = document.querySelector('.confirm-record-btn');
+      const closeX = document.getElementById('modalCloseX');
+
+      recordButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          modal.style.display = 'block';
+        });
+      });
+
+      closeX.addEventListener('click', function () {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      confirmButton.addEventListener('click', function () {
+        const paymentInput = document.getElementById('paymentInput').value;
+        if (!paymentInput || isNaN(paymentInput) || Number(paymentInput) <= 0) {
+          alert('Please enter a valid payment amount.');
+          return;
+        }
+        alert(`Payment of ₱${paymentInput} recorded successfully!`);
+        modal.style.display = 'none';
+        document.getElementById('paymentInput').value = '';
+      });
+    });
+  </script>
 
 </body>
 </html>
