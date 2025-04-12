@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/editreq.css">  <!-- wala pani nako gi convert ning css -->
-
+  <link rel="stylesheet" href="../css/editreq.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +56,7 @@
       <div class="reservation-item">
         <div class="name-section">
           <span class="guest-name">Sayang Aq Huhu</span>
-          <button class="view-details-btn">View Reservation Details</button>
+          <button class="view-details-btn" onclick="showReservationDetails('verified')">View Reservation Details</button>
         </div>
         <div class="changes-section">
           <span class="change-old">Full Cottage</span>
@@ -71,6 +70,90 @@
       </div>
     </div>
   </main>
+
+  <!-- Reservation Details Modal -->
+     <!-- as if pd ang mga data ani -->
+
+  <div class="modal-overlay" id="reservationModal">
+    <div class="reservation-modal">
+      <div class="reservation-header">
+        <div class="reservation-title" id="modalTitle">#7 Sayang Aq Huhu</div>
+        <div class="reservation-status" id="modalStatus">VERIFIED</div>
+      </div>
+      <div class="reservation-date" id="modalDate">2024-10-18</div>
+      <div class="reservation-time" id="modalTime">1:00 PM</div>
+      
+      <div class="reservation-items">
+        <div class="reservation-item">
+          <span>Full Cottage</span>
+          <span>Php 1,000</span>
+        </div>
+        <div class="reservation-item">
+          <span>Round Table w/ 3 chairs</span>
+          <span>Php 150</span>
+        </div>
+      </div>
+      
+      <div class="reservation-total">
+        <span>Total:</span>
+        <span>Php 1,150</span>
+      </div>
+      
+      <div class="reservation-payment">
+        <span>Down Payment:</span>
+        <span>Php 575</span>
+      </div>
+      
+      <div class="reservation-payment">
+        <span>Remaining Balance:</span>
+        <span>Php 575</span>
+      </div>
+      
+      <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function showReservationDetails(status) {
+      const modal = document.getElementById('reservationModal');
+      const modalStatus = document.getElementById('modalStatus');
+      
+      // Set different data based on status for demonstration
+      if (status === 'verified') {
+        document.getElementById('modalTitle').textContent = '#7 Manny Pacquiao';
+        document.getElementById('modalDate').textContent = '2024-10-18';
+        document.getElementById('modalTime').textContent = '1:00 PM';
+        modalStatus.textContent = 'VERIFIED';
+        modalStatus.className = 'reservation-status status-verified';
+      } else if (status === 'pending') {
+        document.getElementById('modalTitle').textContent = '#8 Pending Reservation';
+        document.getElementById('modalDate').textContent = '2024-11-15';
+        document.getElementById('modalTime').textContent = '2:30 PM';
+        modalStatus.textContent = 'PENDING';
+        modalStatus.className = 'reservation-status status-pending';
+      } else if (status === 'cancelled') {
+        document.getElementById('modalTitle').textContent = '#9 Cancelled Reservation';
+        document.getElementById('modalDate').textContent = '2024-09-05';
+        document.getElementById('modalTime').textContent = '10:00 AM';
+        modalStatus.textContent = 'CANCELLED';
+        modalStatus.className = 'reservation-status status-cancelled';
+      }
+      
+      modal.style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('reservationModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('reservationModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>

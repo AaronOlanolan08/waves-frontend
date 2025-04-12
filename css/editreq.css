@@ -266,3 +266,136 @@ body {
 .decline-btn:hover {
   background-color: #dc2626;
 }
+
+
+/* added MODAL STYLES */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+.reservation-modal {
+  background-color: white;
+  border-radius: 10px;
+  width: 400px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reservation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reservation-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #263b49;
+}
+
+.reservation-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-verified {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-pending {
+  background-color: #F59E0B;
+  color: white;
+}
+
+.status-cancelled {
+  background-color: #EF4444;
+  color: white;
+}
+
+.status-past {
+  background-color: #6B7280;
+  color: white;
+}
+
+.reservation-date, .reservation-time {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #4B5563;
+}
+
+.reservation-items {
+  margin: 20px 0;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 15px 0;
+}
+
+.reservation-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.reservation-total {
+  font-weight: 600;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.reservation-payment {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #4B5563;
+}
+
+.close-modal {
+  background-color: #263b49;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  float: right;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.close-modal:hover {
+  background-color: #1E293B;
+}
