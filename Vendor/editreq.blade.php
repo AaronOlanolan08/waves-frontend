@@ -80,7 +80,7 @@
         <div class="reservation-title" id="modalTitle">#7 Sayang Aq Huhu</div>
         <div class="reservation-status" id="modalStatus">VERIFIED</div>
       </div>
-      <div class="reservation-date" id="modalDate">2024-10-18</div>
+      <div class="reservation-date" id="modalDate">10-18-2024</div>
       <div class="reservation-time" id="modalTime">1:00 PM</div>
       
       <div class="reservation-items">
