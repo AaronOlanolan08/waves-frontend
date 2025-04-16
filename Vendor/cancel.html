@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/cancel.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Amenities</title>
+</head>
+
+<body>
+   <!-- NAVIGATION BAR SECTION -->
+
+  <nav class="navbar">
+
+    <div class="left-side-nav">
+        <a href="{{ url('dashboard') }}">
+            <button class="dashboard" id="dashboard">
+          <i class="material-icons nav-icons">dashboard</i> Dashboard
+        </button>
+      </a>
+      <a href="{{ url('ameneties') }}">
+        <button class="ameneties" id="ameneties-btn">
+          <i class="material-icons nav-icons">holiday_village</i> Amenities
+        </button>
+      </a>
+      <a href="{{ url('reservations') }}">
+        <button class="reservations" id="reservation">
+          <i class="material-icons nav-icons">date_range</i> Reservations
+        </button>
+      </a>
+    </div>
+
+    <div class="right-side-nav">
+      <button class="profile">
+        <i class="material-icons" style="font-size:45px; color: white">
+          account_circle
+        </i>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- SIDEBAR SECTION  -->
+
+  <div class="container">
+
+    <nav class="sidebar">
+      <div class="icon-container" id="cottages-tab">
+        <i class="material-icons side-icons">
+          storefront
+        </i>
+        <p class="icon-label">
+          Cottages
+        </p>
+      </div>
+
+      <div class="icon-container" id="tables-tab">
+        <i class="material-icons side-icons" >
+          dining
+        </i>
+        <p class="icon-label">
+          Tables
+        </p>
+      </div>
+
+        <div class="icon-container" id="cancel-tab">
+          <i class="material-icons side-icons">
+            close
+          </i>
+          <p class="icon-label">
+            Cancel
+          </p>
+      </div>
+
+    </nav>
+
+  <!----------------------- MAIN SECTION  ---------------------------->
+    
+  <main class="main">
+
+    <div class="cancel-container">
+       <h2>Cancellation Records</h2> 
+
+       <div class="cancel-filters">
+        <div class="filter-group">
+          <label for="cancel-type">Filter by:</label>
+          <select id="cancel-type">
+            <option value="all">All Cancellations</option>
+            <option value="cottage">Cottages Only</option>
+            <option value="table">Tables Only</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="refund-status">Refund Status:</label>
+          <select id="refund-status">
+            <option value="all">All Statuses</option>
+            <option value="processed">Processed</option>
+            <option value="pending">Pending</option>
+            <option value="denied">Denied</option>
+          </select>
+        </div>
+        
+        <button class="search-btn">Apply Filters</button>
+      </div>
+      
+      <div class="cancel-list">
+        <div class="cancel-header">
+          <div class="header-item">Cancel ID</div>
+          <div class="header-item">Guest Name</div>
+          <div class="header-item">Amenity</div>
+          <div class="header-item">Reservation Date</div>
+          <div class="header-item">Cancel Date</div>
+          <div class="header-item">Refund Status</div>
+          <div class="header-item">Actions</div>
+        </div>
+        
+        <!-- This would be populated dynamically with JavaScript -->
+        <div class="cancel-items" id="cancel-items-container">
+          <!-- Example cancel item (would be generated for each record) -->
+          <div class="cancel-item">
+            <div class="item-detail">CNL-2023-001</div>
+            <div class="item-detail">John Smith</div>
+            <div class="item-detail">Beachfront Villa (Cottage)</div>
+            <div class="item-detail">May 15, 2023</div>
+            <div class="item-detail">May 10, 2023</div>
+            <div class="item-detail status-processed">Processed</div>
+            <div class="item-detail">
+              <button class="view-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cancel-pagination">
+        <button class="page-btn">Previous</button>
+        <span class="page-number">1</span>
+        <button class="page-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+<div id="cancel-details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Cancellation Details</h2>
+      <div class="modal-body" id="modal-body">
+        <!-- Details will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </div>
+   </main>
+
+  </div>
+
+
+  <script>
+    window.onload = function () {
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+  
+      const monthSelect = document.getElementById("month-select");
+      const daySelect = document.getElementById("day-select");
+      const yearSelect = document.getElementById("year-select");
+      const currentDateTitle = document.getElementById("current-date");
+  
+      // Populate month select
+      monthNames.forEach((month, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = month;
+        monthSelect.appendChild(option);
+      });
+  
+      // Populate year select
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear - 5; y <= currentYear + 5; y++) {
+        const option = document.createElement("option");
+        option.value = y;
+        option.textContent = y;
+        yearSelect.appendChild(option);
+      }
+  
+      // Update days
+      function updateDays() {
+        const selectedYear = parseInt(yearSelect.value);
+        const selectedMonth = parseInt(monthSelect.value);
+        const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+  
+        daySelect.innerHTML = "";
+        for (let d = 1; d <= daysInMonth; d++) {
+          const option = document.createElement("option");
+          option.value = d;
+          option.textContent = d;
+          daySelect.appendChild(option);
+        }
+      }
+  
+      // Update header
+      function updateTitle() {
+        const selectedMonth = monthNames[parseInt(monthSelect.value)];
+        const selectedDay = daySelect.value;
+        const selectedYear = yearSelect.value;
+  
+        currentDateTitle.textContent = `${selectedMonth} ${selectedDay}, ${selectedYear}`;
+      }
+  
+      // Initial setup
+      const now = new Date();
+      monthSelect.value = now.getMonth();
+      yearSelect.value = now.getFullYear();
+      updateDays();
+      daySelect.value = now.getDate();
+      updateTitle();
+  
+      // Event listeners
+      monthSelect.addEventListener("change", () => {
+        updateDays();
+        updateTitle();
+      });
+  
+      yearSelect.addEventListener("change", () => {
+        updateDays();
+        updateTitle();
+      });
+  
+      daySelect.addEventListener("change", updateTitle);
+    };
+    
+    function loadContent(page) {
+  fetch(page)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('main-content').innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading content:', error);
+    });
+}
+
+
+  // Sidebar tab buttons
+  const cottagesTab = document.getElementById('cottages-tab');
+  const tablesTab = document.getElementById('tables-tab');
+  const cancelTab = document.getElementById('cancel-tab');
+
+  // Event listeners
+  cottagesTab.addEventListener('click', () => {
+  window.location.href = 'cottages.html';
+});
+
+  tablesTab.addEventListener('click', () => {
+    setActiveTab(tablesTab);
+    window.location.href = 'tables.html';
+  });
+
+  cancelTab.addEventListener('click', ( )=> {
+    window.location.href = 'cancel.html';
+  });
+
+  function setActiveTab(activeTab) {
+    document.querySelectorAll('.icon-container').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    activeTab.classList.add('active');
+  }
+
+
+// mag view sa details sa modal nga cancellation
+document.addEventListener("DOMContentLoaded", () => {
+    const viewButtons = document.querySelectorAll(".view-btn");
+    const modal = document.getElementById("cancel-details-modal");
+    const closeModal = modal.querySelector(".close-modal");
+
+    viewButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+
+    
+  </script>
+    
+    
+  
+</body>
+</html>
