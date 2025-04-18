@@ -24,9 +24,15 @@
                 </div>
                 
                 <nav class="menu">
-                    <a href="#"><i class="fas fa-user"></i> Profile</a>
-                    <a href="#"><i class="fas fa-calendar-alt"></i> Reservations</a>
-                    <a href="#" class="active"><i class="fas fa-wallet"></i> Account Balance</a>
+                    <a href="{{ route('customer.profile') }}">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                        <a href="{{ route('customer.reservation.records') }}">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Reservation</span>
+                            
+            <a href="{{ route('customer.accountbalance') }}" class="active">
+                <i class="fas fa-wallet"></i> Account Balance</a>
     
                 </nav>
                 
