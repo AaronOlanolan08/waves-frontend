@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Customer Balance</title>
+        <link rel="stylesheet" href="../css/cus_bal.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <aside class="sidebar">
+                <div class="back-button">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Back to main</span>
+                </div>
+                
+                <div class="customer-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <span class="customer-name">Manny Pacquiao</span>
+                </div>
+                
+                <nav class="menu">
+                    <a href="#"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#"><i class="fas fa-calendar-alt"></i> Reservations</a>
+                    <a href="#" class="active"><i class="fas fa-wallet"></i> Account Balance</a>
+    
+                </nav>
+                
+                <button class="logout">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </button>
+            </aside>
+            
+            <main class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-header">
+                    </div>
+                    
+                    <div class="profile-content">
+                        <div class="balance-container">
+                            <div class="balance-card">
+                                <div class="balance-header">
+                                    <h2>Payment Details</h2>
+                                </div>
+                                
+                                <div class="balance-content">
+                                    <div class="reservation-details">
+                                        <div class="detail-group">
+                                            <span class="detail-label">Reserved By:</span>
+                                            <span class="detail-value">Manny Pacquiao</span>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <span class="detail-label">Reservation Date:</span>
+                                            <span class="detail-value">June 15, 2023</span>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <span class="detail-label">Date:</span>
+                                            <span class="detail-value">June 30, 2023</span>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <span class="detail-label">Reservation ID:</span>
+                                            <span class="detail-value">RES-2023-0065</span>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <span class="detail-label">Amenity:</span>
+                                            <span class="detail-value">Cottage 2</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-summary">
+                                        <div class="payment-row">
+                                            <span>Total Amount:</span>
+                                            <span>₱15,000.00</span>
+                                        </div>
+                                        <div class="payment-row">
+                                            <span>Downpayment Paid:</span>
+                                            <span>₱5,000.00</span>
+                                        </div>
+                                        <div class="payment-row">
+                                            <span>Remaining Balance:</span>
+                                            <span>₱10,000.00</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-methods">
+                                        <h3>Select Payment Method</h3>
+                                        
+                                        <div class="payment-option selected" onclick="selectPayment(this, 'gcash')">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="payment-info">
+                                                <div class="payment-name">GCash</div>
+                                                <div class="payment-desc">Pay using your GCash wallet</div>
+                                            </div>
+                                            <i class="fas fa-check-circle" style="color: rgba(49, 105, 109, 0.751);"></i>
+                                        </div>
+                                        
+                                        <div class="payment-option" onclick="selectPayment(this, 'cash')">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </div>
+                                            <div class="payment-info">
+                                                <div class="payment-name">Cash Payment</div>
+                                                <div class="payment-desc">Pay in cash upon arrival</div>
+                                            </div>
+                                            <i class="fas fa-check-circle" style="color: #ddd;"></i>
+                                        </div>
+                                        
+                                        <button class="pay-button" onclick="processPayment()">
+                                            <i class="fas fa-check"></i> Pay Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script>
+            function selectPayment(element, paymentMethod) {
+                document.querySelectorAll('.payment-option').forEach(option => {
+                    option.classList.remove('selected');
+                    option.querySelector('.fa-check-circle').style.color = '#ddd';
+                });
+                
+                element.classList.add('selected');
+                element.querySelector('.fa-check-circle').style.color = 'rgba(49, 105, 109, 0.751)';
+                
+                document.getElementById('selectedPayment').value = paymentMethod;
+            }
+            
+            function processPayment() {
+                const selectedOption = document.querySelector('.payment-option.selected');
+                const paymentMethod = selectedOption.getAttribute('onclick').split("'")[1];
+                
+                if (paymentMethod === 'gcash') {
+                    alert('Redirecting to GCash payment gateway...');
+                } else {
+                    alert('You have selected Cash Payment. Please prepare the exact amount upon arrival.');
+                }
+            }
+        </script>
+    </body>
+</html>
