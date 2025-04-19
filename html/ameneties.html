@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/ameneties.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <title>Dashboard</title>
+  <title>Ameneties</title>
 </head>
-<body>
 
-  <!-- NAVIGATION BAR SECTION -->
+<body>
+   <!-- NAVIGATION BAR SECTION -->
 
   <nav class="navbar">
 
@@ -22,7 +22,7 @@
           <i class="material-icons nav-icons">dashboard</i> Dashboard
         </button>
       </a>
-      <a href="ameneties.html">
+      <a href="cottages.html">
         <button class="ameneties" id="ameneties">
           <i class="material-icons nav-icons">holiday_village</i> Ameneties
         </button>
@@ -35,23 +35,54 @@
     </div>
 
     <div class="right-side-nav">
-      <button class="profile">
-        <i class="material-icons" style="font-size:45px; color: white">
-          account_circle
-        </i>
-      </button>
+      <a href="manager_profile.html">
+        <button class="profile">
+          <i class="material-icons" style="font-size:45px; color: white">
+            account_circle
+          </i>
+        </button>
+      </a>
     </div>
 
   </nav>
 
-  <!-- MAIN SECTION -->
+  <!-- SIDEBAR SECTION  -->
 
-  <main class="main">
-    <p class="head-title">
-      Dashboard Section
-    </p>
+  <div class="container">
 
-  </main>
+    <aside class="sidebar">
+      <div class="icon-container">
+        <a href="cottages.html">
+          <i class="material-icons side-icons">
+            storefront
+          </i>
+        </a>
+        <p class="icon-label">
+          Cottages
+        </p>
+      </div>
+  
+      <div class="icon-container">
+        <a href="tables.html">
+          <i class="material-icons side-icons" >
+            dining
+          </i> 
+        </a>
+        <p class="icon-label">
+          Tables
+        </p>
+      </div>
+    </aside>
+
+  <!----------------------- MAIN SECTION  ---------------------------->
+    
+    <main class="main">
+  
+    </main>
+
+
+  </div>
+
 
   <script src="../js/navbutton.js"></script>
   
