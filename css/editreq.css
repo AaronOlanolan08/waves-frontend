@@ -35,7 +35,7 @@ body {
 
 /* Navigation Bar Styles */
 .navbar {
-  background-color: #263b49;
+  background-color: #002044;
   height: 10vh;
   width: 100vw;
   display: flex;
@@ -68,7 +68,7 @@ body {
 
 .dashboard {
   background-color: white;
-  color: #263b49;
+  color: #002044;
 }
 
 .nav-icons {
@@ -76,7 +76,7 @@ body {
 }
 
 .ameneties, .reservations {
-  background-color: #263b49;
+  background-color: #002044;
   color: white;
 }
 
@@ -88,19 +88,19 @@ body {
 }
 
 .profile {
-  background-color: #263b49;
+  background-color: #002044;
   border: 0 solid black;
   cursor: pointer;
 }
 
 .inactive {
-  background-color: #263b49;
+  background-color: #002044;
   color: white;
 }
 
 .active {
   background-color: white;
-  color: #263b49;
+  color: #002044;
 }
 
 /* Main Content Styles */
@@ -125,7 +125,7 @@ body {
   display: block;
   margin-bottom: 10px;
   text-align: left;
-  color: #263b49;
+  color: #002044;
   font-size: 18px;
   text-decoration: none;
 }
@@ -383,7 +383,7 @@ body {
 }
 
 .close-modal {
-  background-color: #263b49;
+  background-color: #002044;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
